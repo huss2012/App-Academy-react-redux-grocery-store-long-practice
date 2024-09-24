@@ -1,8 +1,9 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import produceReducer from './produce';
 
 //define the root reducer:
 const rootReducer = combineReducers({
-
+  produce: produceReducer
 });
 
 let enhancer;
