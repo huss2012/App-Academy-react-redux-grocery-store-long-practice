@@ -1,10 +1,13 @@
 import CartItem from './CartItem';
 import './Cart.css';
 import { useSelector } from 'react-redux';
+import { purchaseAction } from '../../store/cart';
+import { useDispatch } from 'react-redux';
 
 function Cart() {
   const cart = useSelector(state => state.cart);
   const produce = useSelector(state => state.produce);
+  const dispatch = useDispatch();
 
   const cartItems = Object.values(cart)
     .map(item => {
@@ -26,12 +29,13 @@ function Cart() {
       "Purchased the following:\n" +
       `${cartItems.map(item => `${item.count} of ${item.name}`).join('\n')}`
     );
+    dispatch(purchaseAction());
   }
 
   return (
     <div className="cart">
       <ul>
-        {cartItems.map(item => <CartItem key={item.id} item={item}/>)}
+        {cartItems.map(item => <CartItem key={item.id} item={item} />)}
       </ul>
       <hr />
       <form onSubmit={onSubmit}>
