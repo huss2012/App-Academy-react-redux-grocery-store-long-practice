@@ -3,6 +3,8 @@ import './Cart.css';
 import { useSelector } from 'react-redux';
 import { purchaseAction } from '../../store/cart';
 import { useDispatch } from 'react-redux';
+import { getAllProduce } from '../../store/produce';
+
 
 function Cart() {
   const cart = useSelector(state => state.cart);

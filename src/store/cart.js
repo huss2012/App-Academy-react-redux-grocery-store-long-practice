@@ -125,4 +125,5 @@ export default function cartReducer(state = {}, action) {
         default:
             return state;
     }
-}
+};
+
